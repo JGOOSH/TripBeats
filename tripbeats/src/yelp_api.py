@@ -31,8 +31,9 @@ def get_Event(destination, departure, arrival) :
             "latitude": str(destination["latitude"]),
             "longitude": str(destination["longitude"]),
             "categories" : "music",
-            "start_date" : 1531603514,
-            "end_date" : 1631603514}
+            "start_date" : departure,
+            "end_date" : arrival
+        }
     headers = {
         'Authorization': "Bearer sTsOTbcOO0JG2QVT2WNQjhstoKm6atvrg6-3Cfn5vOM9RsCgWf8JaSfC5wemkdGvHmEqbBK_VJbCid4XZrwwcxuMpww4lnK2DsW1uNgBPBgklHxTMO6WgQkcXD1KW3Yx",
         'Cache-Control': "no-cache",
