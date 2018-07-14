@@ -7,7 +7,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask_cors import CORS
 
-def get_response(destination):
+def get_list(destination):
 
     URL = "https://api.spotify.com/v1/search"
 
@@ -33,7 +33,7 @@ def get_response(destination):
 
 def get_playlist(destination):
 
-    response = get_response(destination)
+    response = get_list(destination)
 
     parsed = json.loads(response)["playlists"]
 
@@ -67,7 +67,7 @@ def get_auth_token():
 
     HEADERS = {
 
-        "Authorization": "Basic " + base64.b64encode("7a0ec994dec14b5aae6b994e6728d8ed:245e48245ec34e099e3da331465bc753".encode('utf-8'))
+        "Authorization": "Basic " + base64.b64encode("7a0ec994dec14b5aae6b994e6728d8ed:245e48245ec34e099e3da331465bc753".encode('utf-8')).decode("ascii")
 
     }
 
@@ -84,8 +84,6 @@ CORS(app)
 def get_request():
 	body = request.get_json(force=True)
 
-	print(body)
-
 	dest = body['trip']['destination']
 
 	fromaddr = 'no-reply@tripbeats.com'
@@ -96,14 +94,16 @@ def get_request():
 	    data = json.load(f)
 
 	server.login(data['id'], data['passwd'])
-	
+    
+	spotify_playlist = get_playlist(dest)
+    
 	for person in body['people']:
 		msg = MIMEMultipart()
 		msg['From'] = fromaddr
 		msg['To'] = person['email']
 		msg['Subject'] = 'Your Trip to ' + dest
 
-		body = "YOUR MESSAGE HERE"
+		body = "Spotify: " + spotify_playlist
 		msg.attach(MIMEText(body, 'plain'))
 		text = msg.as_string()
 		server.sendmail(fromaddr, person['email'], text)
@@ -111,7 +111,7 @@ def get_request():
 	server.quit()
 
 	data = {
-		'spotify' : get_playlist(dest)
+		'spotify' : spotify_playlist
 	}
 
 	resp = jsonify(data)
