@@ -4,8 +4,10 @@ import requests
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/getthething", methods=['POST'])
 def get_request():
