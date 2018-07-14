@@ -19,9 +19,11 @@ const styles = theme => ({
 });
 
 const fetchInputData = async data => {
-  const request = await fetch("http://127.0.0.1:5000/getthething", {
+  const request = await fetch("http://localhost:5000/getthething", {
     mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json"
+    },
     method: "POST",
     body: JSON.stringify(data)
   });

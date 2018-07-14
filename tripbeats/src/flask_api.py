@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import request
+from flask import Flask, request, Response, jsonify
 import json
 import requests
 import smtplib
@@ -38,4 +37,11 @@ def get_request():
 
 	server.quit()
 
-	return "LINK_TO_SPOTIFY_PLAYLIST"
+	data = {
+		'spotify' : 'LINK'
+	}
+
+	resp = jsonify(data)
+	resp.status_code = 200
+
+	return resp
