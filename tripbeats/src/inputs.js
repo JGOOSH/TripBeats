@@ -18,11 +18,15 @@ const styles = theme => ({
   }
 });
 
-const fetchInputData = async ({ data }) => {
-  const request = await fetch("/getthething", {
+const fetchInputData = async data => {
+  const request = await fetch("http://127.0.0.1:5000/getthething", {
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
     method: "POST",
     body: JSON.stringify(data)
   });
+
+  console.log(request);
 };
 
 const scrapeUserInput = list => {
@@ -42,7 +46,7 @@ const scrapeUserInput = list => {
   }
   const data = { trip, people };
   console.log(data);
-  //   fetchInputData(data);
+  fetchInputData(data);
 };
 
 const renderUserInputs = (classes, length) => {

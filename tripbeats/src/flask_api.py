@@ -10,7 +10,9 @@ app = Flask(__name__)
 
 @app.route("/getthething", methods=['POST'])
 def get_request():
-	body = request.get_json()
+	body = request.get_json(force=True)
+
+	print(body)
 
 	dest = body['trip']['destination']
 
@@ -23,7 +25,7 @@ def get_request():
 
 	server.login(data['id'], data['passwd'])
 	
-	for person in body['trip']['people']:
+	for person in body['people']:
 		msg = MIMEMultipart()
 		msg['From'] = fromaddr
 		msg['To'] = person['email']
@@ -36,25 +38,4 @@ def get_request():
 
 	server.quit()
 
-
-
-server.ehlo()
-with open('email_login.json') as f:
-    data = json.load(f)
-
-print(data['id'])
-print(data['passwd'])
-
-server.login(data['id'], data['passwd'])
-msg = MIMEMultipart()
-msg['From'] = 'no-reply@tripbeats.com'
-msg['To'] = 'ghwo8844@gmail.com'
-msg['Subject'] = 'Your Trip to'
-
-body = "YOUR MESSAGE HERE"
-msg.attach(MIMEText(body, 'plain'))
-text = msg.as_string()
-server.sendmail('no-reply@tripbeats.com', 'ghwo8844@gmail.com', text)
-
-server.quit()
-
+	return "LINK_TO_SPOTIFY_PLAYLIST"
