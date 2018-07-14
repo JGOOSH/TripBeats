@@ -3,7 +3,8 @@
 # dependencies
 /node_modules
 
-email_login.json
+/email_login.json
+/yelp.json
 
 # testing
 /coverage
