@@ -18,13 +18,77 @@ const styles = theme => ({
   }
 });
 
+const fetchInputData = async ({ data }) => {
+  const request = await fetch("/getthething", {
+    method: "POST",
+    body: JSON.stringify(data)
+  });
+};
+
+const scrapeUserInput = list => {
+  const trip = {
+    destination: document.getElementById("destination").value,
+    departure: document.getElementById("departure").value,
+    return: document.getElementById("return").value
+  };
+  let people = [];
+  var i;
+  for (i = 0; i < list.length; i++) {
+    people.push({
+      firstName: document.getElementById(`first_name-${i}`).value,
+      lastName: document.getElementById(`last_name-${i}`).value,
+      email: document.getElementById(`email-${i}`).value
+    });
+  }
+  const data = { trip, people };
+  //   fetchInputData(data);
+};
+
+const renderUserInputs = (classes, length) => {
+  return (
+    <form
+      className={classes.container}
+      noValidate
+      autoComplete="off"
+      key={`user-${length}`}
+    >
+      <TextField
+        id={`first_name-${length}`}
+        label="First Name"
+        className={classes.textField}
+        margin="normal"
+      />
+      <TextField
+        id={`last_name-${length}`}
+        label="Last Name"
+        className={classes.textField}
+        margin="normal"
+      />
+      <TextField
+        id={`email-${length}`}
+        label="Email"
+        className={classes.textField}
+        margin="normal"
+      />
+    </form>
+  );
+};
+
 class InputFields extends Component {
   state = {
-    userCount: 1
+    userInputList: []
   };
+
+  constructor(props) {
+    super(props);
+    const { classes } = this.props;
+    const { userInputList } = this.state;
+    userInputList.push(renderUserInputs(classes, userInputList.length));
+  }
 
   render() {
     const { classes } = this.props;
+    const { userInputList } = this.state;
     return (
       <div>
         <form className={classes.container} noValidate autoComplete="off">
@@ -35,43 +99,38 @@ class InputFields extends Component {
             margin="normal"
           />
           <TextField
-            id="date"
+            id="departure"
             label="Departure (MM-DD-YYYY)"
             className={classes.textField}
             margin="normal"
           />
           <TextField
-            id="date"
+            id="return"
             label="Return (MM-DD-YYYY)"
             className={classes.textField}
             margin="normal"
           />
         </form>
-        <form className={classes.container} noValidate autoComplete="off">
-          <TextField
-            id="first_name"
-            label="First Name"
-            className={classes.textField}
-            margin="normal"
-          />
-          <TextField
-            id="last_name"
-            label="Last Name"
-            className={classes.textField}
-            margin="normal"
-          />
-          <TextField
-            id="email"
-            label="Email"
-            className={classes.textField}
-            margin="normal"
-          />
-        </form>
+        {userInputList.map(list => list)}
         <div className={classes.container}>
-          <Button variant="contained" className={classes.button}>
+          <Button
+            variant="contained"
+            className={classes.button}
+            onClick={() => {
+              let list = userInputList;
+              list.push(renderUserInputs(classes, list.length));
+              this.setState({ userInputList: list });
+            }}
+          >
             Add user
           </Button>
-          <Button variant="contained" className={classes.button}>
+          <Button
+            variant="contained"
+            className={classes.button}
+            onClick={() => {
+              scrapeUserInput(userInputList);
+            }}
+          >
             Submit
           </Button>
         </div>
