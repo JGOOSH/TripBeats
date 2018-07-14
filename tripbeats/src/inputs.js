@@ -18,11 +18,30 @@ const styles = theme => ({
   }
 });
 
-const fetchInputData = async ({ querystring }) => {
+const fetchInputData = async ({ data }) => {
   const request = await fetch("/getthething", {
     method: "POST",
-    headers: JSON.stringify(querystring)
+    body: JSON.stringify(data)
   });
+};
+
+const scrapeUserInput = list => {
+  const trip = {
+    destination: document.getElementById("destination").value,
+    departure: document.getElementById("departure").value,
+    return: document.getElementById("return").value
+  };
+  let people = [];
+  var i;
+  for (i = 0; i < list.length; i++) {
+    people.push({
+      firstName: document.getElementById(`first_name-${i}`).value,
+      lastName: document.getElementById(`last_name-${i}`).value,
+      email: document.getElementById(`email-${i}`).value
+    });
+  }
+  const data = { trip, people };
+  //   fetchInputData(data);
 };
 
 const renderUserInputs = (classes, length) => {
@@ -69,6 +88,7 @@ class InputFields extends Component {
 
   render() {
     const { classes } = this.props;
+    const { userInputList } = this.state;
     return (
       <div>
         <form className={classes.container} noValidate autoComplete="off">
@@ -79,32 +99,38 @@ class InputFields extends Component {
             margin="normal"
           />
           <TextField
-            id="date"
+            id="departure"
             label="Departure (MM-DD-YYYY)"
             className={classes.textField}
             margin="normal"
           />
           <TextField
-            id="date"
+            id="return"
             label="Return (MM-DD-YYYY)"
             className={classes.textField}
             margin="normal"
           />
         </form>
-        {this.state.userInputList.map(list => list)}
+        {userInputList.map(list => list)}
         <div className={classes.container}>
           <Button
             variant="contained"
             className={classes.button}
             onClick={() => {
-              let list = this.state.userInputList;
+              let list = userInputList;
               list.push(renderUserInputs(classes, list.length));
               this.setState({ userInputList: list });
             }}
           >
             Add user
           </Button>
-          <Button variant="contained" className={classes.button}>
+          <Button
+            variant="contained"
+            className={classes.button}
+            onClick={() => {
+              scrapeUserInput(userInputList);
+            }}
+          >
             Submit
           </Button>
         </div>
