@@ -41,6 +41,7 @@ const scrapeUserInput = list => {
     });
   }
   const data = { trip, people };
+  console.log(data);
   //   fetchInputData(data);
 };
 
