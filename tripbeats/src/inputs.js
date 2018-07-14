@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Submitted from "./submittedPage";
 
 const styles = theme => ({
   container: {
@@ -20,15 +21,12 @@ const styles = theme => ({
 
 const fetchInputData = async data => {
   const request = await fetch("http://localhost:5000/getthething", {
-    mode: "no-cors",
     headers: {
       "Content-Type": "application/json"
     },
     method: "POST",
     body: JSON.stringify(data)
   });
-
-  console.log(request);
 };
 
 const scrapeUserInput = list => {
@@ -47,8 +45,8 @@ const scrapeUserInput = list => {
     });
   }
   const data = { trip, people };
-  console.log(data);
   fetchInputData(data);
+  return data;
 };
 
 const renderUserInputs = (classes, length) => {
@@ -83,7 +81,9 @@ const renderUserInputs = (classes, length) => {
 
 class InputFields extends Component {
   state = {
-    userInputList: []
+    isSubmitted: false,
+    userInputList: [],
+    travelData: []
   };
 
   constructor(props) {
@@ -95,54 +95,57 @@ class InputFields extends Component {
 
   render() {
     const { classes } = this.props;
-    const { userInputList } = this.state;
-    return (
-      <div>
-        <form className={classes.container} noValidate autoComplete="off">
-          <TextField
-            id="destination"
-            label="Destination"
-            className={classes.textField}
-            margin="normal"
-          />
-          <TextField
-            id="departure"
-            label="Departure (MM-DD-YYYY)"
-            className={classes.textField}
-            margin="normal"
-          />
-          <TextField
-            id="return"
-            label="Return (MM-DD-YYYY)"
-            className={classes.textField}
-            margin="normal"
-          />
-        </form>
-        {userInputList.map(list => list)}
-        <div className={classes.container}>
-          <Button
-            variant="contained"
-            className={classes.button}
-            onClick={() => {
-              let list = userInputList;
-              list.push(renderUserInputs(classes, list.length));
-              this.setState({ userInputList: list });
-            }}
-          >
-            Add user
-          </Button>
-          <Button
-            variant="contained"
-            className={classes.button}
-            onClick={() => {
-              scrapeUserInput(userInputList);
-            }}
-          >
-            Submit
-          </Button>
+    const { userInputList, isSubmitted } = this.state;
+    if (!isSubmitted)
+      return (
+        <div>
+          <form className={classes.container} noValidate autoComplete="off">
+            <TextField
+              id="destination"
+              label="Destination"
+              className={classes.textField}
+              margin="normal"
+            />
+            <TextField
+              id="departure"
+              label="Departure (MM-DD-YYYY)"
+              className={classes.textField}
+              margin="normal"
+            />
+            <TextField
+              id="return"
+              label="Return (MM-DD-YYYY)"
+              className={classes.textField}
+              margin="normal"
+            />
+          </form>
+          {userInputList.map(list => list)}
+          <div className={classes.container}>
+            <Button
+              variant="contained"
+              className={classes.button}
+              onClick={() => {
+                let list = userInputList;
+                list.push(renderUserInputs(classes, list.length));
+                this.setState({ userInputList: list });
+              }}
+            >
+              Add Person
+            </Button>
+            <Button
+              variant="contained"
+              className={classes.button}
+              onClick={() => {
+                let data = scrapeUserInput(userInputList);
+                this.setState({ isSubmitted: true, travelData: data });
+              }}
+            >
+              Submit
+            </Button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    else return <Submitted travelData={this.state.travelData} />;
   }
 }
 

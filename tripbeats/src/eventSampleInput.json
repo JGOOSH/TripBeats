@@ -1,0 +1,109 @@
+{
+    "events": [
+        {
+            "attending_count": 50,
+            "category": "music",
+            "cost": null,
+            "cost_max": null,
+            "description": "Galeet Dardashti performs Monajat, an evening of Middle Eastern musical poetry sung during the month preceding the Jewish New Year as a means of reflection...",
+            "event_site_url": "https://www.yelp.com/events/los-angeles-grand-performances?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_event_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "id": "los-angeles-grand-performances",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/ephoto/CiZIT5HPwMTXj1ylDvpDeg/o.jpg",
+            "interested_count": 67,
+            "is_canceled": false,
+            "is_free": true,
+            "is_official": false,
+            "latitude": 34.052996,
+            "longitude": -118.2548551,
+            "name": "Grand Performances",
+            "tickets_url": null,
+            "time_end": "2011-09-26 05:00",
+            "time_start": "2011-09-26 03:00",
+            "location": {
+                "address1": "",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90071",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "Los Angeles, CA 90071"
+                ],
+                "cross_streets": ""
+            },
+            "business_id": null
+        },
+        {
+            "attending_count": 1,
+            "category": "music",
+            "cost": null,
+            "cost_max": null,
+            "description": "RSVPs now closed. Winner will be contacted directly.\n\n$20 tickets available!...",
+            "event_site_url": "https://www.yelp.com/events/los-angeles-ticket-giveaway-2016-labor-day-music-festival-featuring-snoop-dogg?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_event_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "id": "los-angeles-ticket-giveaway-2016-labor-day-music-festival-featuring-snoop-dogg",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/ephoto/wYywtZZ03RFncpNnHYWLRw/o.jpg",
+            "interested_count": 389,
+            "is_canceled": false,
+            "is_free": true,
+            "is_official": true,
+            "latitude": 34.0138594,
+            "longitude": -118.2828112,
+            "name": "TICKET GIVEAWAY: 2016 Labor Day Music Festival Featuring: Snoop Dogg",
+            "tickets_url": "https://www.ticketfly.com/purchase/event/1209531?utm_source=yelp&utm_medium=taads&utm_campaign=ldmf",
+            "time_end": null,
+            "time_start": "2016-09-05 18:00",
+            "location": {
+                "address1": "3911 S Figueroa St",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90037",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "3911 S Figueroa St",
+                    "Los Angeles, CA 90037"
+                ],
+                "cross_streets": ""
+            },
+            "business_id": "los-angeles-memorial-coliseum-los-angeles-3"
+        },
+        {
+            "attending_count": 1,
+            "category": "music",
+            "cost": null,
+            "cost_max": null,
+            "description": "RSVPs are now closed for this giveaway.\n\n@YelpLA is giving away 3 pairs of VIP tickets to Air + Style, 2/18-2/19! Enter now for your chance to win two VIP...",
+            "event_site_url": "https://www.yelp.com/events/los-angeles-win-vip-tix-air-style-2?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_event_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "id": "los-angeles-win-vip-tix-air-style-2",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/ephoto/I6HDxTlUocWdSrCeONby5w/o.jpg",
+            "interested_count": 395,
+            "is_canceled": false,
+            "is_free": false,
+            "is_official": true,
+            "latitude": 34.0165495,
+            "longitude": -118.2844186,
+            "name": "Win VIP Tix: Air + Style",
+            "tickets_url": null,
+            "time_end": "2017-02-20 06:00",
+            "time_start": "2017-02-18 22:00",
+            "location": {
+                "address1": "701 State Dr",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90037",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "701 State Dr",
+                    "Los Angeles, CA 90037"
+                ],
+                "cross_streets": ""
+            },
+            "business_id": "exposition-park-los-angeles"
+        }
+    ],
+    "total": 3
+}

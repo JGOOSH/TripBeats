@@ -11,7 +11,7 @@ def get_Businesses(destination) :
     querystring = {
             "latitude": str(destination["latitude"]),
             "longitude": str(destination["longitude"]),
-            "categories" : "musicvenues,musicians,jazzandblues,karaoke,bars",
+            "categories" : "musicvenues,musicians,jazzandblues,karaoke",
             "sort_by" : "rating"}
     headers = {
         'Authorization': "Bearer sTsOTbcOO0JG2QVT2WNQjhstoKm6atvrg6-3Cfn5vOM9RsCgWf8JaSfC5wemkdGvHmEqbBK_VJbCid4XZrwwcxuMpww4lnK2DsW1uNgBPBgklHxTMO6WgQkcXD1KW3Yx",
@@ -43,3 +43,6 @@ def get_Event(destination, departure, arrival) :
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     return response.json()
+
+
+print(get_Businesses({"latitude": 34.0522 , "longitude": -118.2437 }))

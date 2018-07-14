@@ -1,0 +1,875 @@
+{
+    "businesses": [
+        {
+            "id": "26nAsftIQoPhq7FfADIdCA",
+            "alias": "walt-disney-concert-hall-los-angeles",
+            "name": "Walt Disney Concert Hall",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/12DtxdgeuWsd3GTHzZdyJQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/walt-disney-concert-hall-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 559,
+            "categories": [
+                {
+                    "alias": "theater",
+                    "title": "Performing Arts"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.0551616634041,
+                "longitude": -118.249652981758
+            },
+            "transactions": [],
+            "price": "$$$",
+            "location": {
+                "address1": "111 S Grand Ave",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90012",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "111 S Grand Ave",
+                    "Los Angeles, CA 90012"
+                ]
+            },
+            "phone": "+13238502000",
+            "display_phone": "(323) 850-2000",
+            "distance": 639.7065408857983
+        },
+        {
+            "id": "i6ewBdU0UcuLy8Io6uJTUA",
+            "alias": "staples-center-los-angeles-10",
+            "name": "STAPLES Center",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/OJ4Typ2RDnmnGisgL6TZAA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/staples-center-los-angeles-10?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 1811,
+            "categories": [
+                {
+                    "alias": "stadiumsarenas",
+                    "title": "Stadiums & Arenas"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.04312,
+                "longitude": -118.26711
+            },
+            "transactions": [],
+            "price": "$$$",
+            "location": {
+                "address1": "1111 S Figueroa St",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90015",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "1111 S Figueroa St",
+                    "Los Angeles, CA 90015"
+                ]
+            },
+            "phone": "+13233308018",
+            "display_phone": "(323) 330-8018",
+            "distance": 2407.6732033163526
+        },
+        {
+            "id": "veyBgbOjIHv7npz7eHf1NQ",
+            "alias": "eightytwo-los-angeles-2",
+            "name": "EightyTwo",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/DCK65MM5q6ojeYsr1ZrJxA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/eightytwo-los-angeles-2?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 1309,
+            "categories": [
+                {
+                    "alias": "bars",
+                    "title": "Bars"
+                },
+                {
+                    "alias": "arcades",
+                    "title": "Arcades"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.04536,
+                "longitude": -118.23733
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "707 E 4th Pl",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90013",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "707 E 4th Pl",
+                    "Los Angeles, CA 90013"
+                ]
+            },
+            "phone": "+12136268200",
+            "display_phone": "(213) 626-8200",
+            "distance": 961.7363218874776
+        },
+        {
+            "id": "tgaykHPFl0UivvBEqUqAVg",
+            "alias": "center-theatre-group-ahmanson-theatre-los-angeles",
+            "name": "Center Theatre Group Ahmanson Theatre",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/6f-BKVYxW6tBN6LE-rLbVg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/center-theatre-group-ahmanson-theatre-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 446,
+            "categories": [
+                {
+                    "alias": "theater",
+                    "title": "Performing Arts"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.058297,
+                "longitude": -118.247309
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "135 N Grand Ave",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90012",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "135 N Grand Ave",
+                    "Los Angeles, CA 90012"
+                ]
+            },
+            "phone": "+12136282772",
+            "display_phone": "(213) 628-2772",
+            "distance": 755.0921610356269
+        },
+        {
+            "id": "KM0vgUk-ULUSLgViw0TZxQ",
+            "alias": "grand-performances-los-angeles",
+            "name": "Grand Performances",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/XFVND-yyLr5KFub7q_EFsw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/grand-performances-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 175,
+            "categories": [
+                {
+                    "alias": "theater",
+                    "title": "Performing Arts"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 34.05166,
+                "longitude": -118.25138
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "350 S Grand Ave",
+                "address2": "Ste A-4",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90071",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "350 S Grand Ave",
+                    "Ste A-4",
+                    "Los Angeles, CA 90071"
+                ]
+            },
+            "phone": "+12136872190",
+            "display_phone": "(213) 687-2190",
+            "distance": 737.5501526084039
+        },
+        {
+            "id": "TIoGCAPbJfR7Lpb2lnzYGA",
+            "alias": "blue-whale-bar-los-angeles",
+            "name": "Blue Whale Bar",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/tnygT_lvLHDxrLaQ96ERtA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/blue-whale-bar-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 292,
+            "categories": [
+                {
+                    "alias": "jazzandblues",
+                    "title": "Jazz & Blues"
+                },
+                {
+                    "alias": "lounges",
+                    "title": "Lounges"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.049873,
+                "longitude": -118.242122
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "123 Astronaut E S Onizuka St",
+                "address2": "Ste 301",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90012",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "123 Astronaut E S Onizuka St",
+                    "Ste 301",
+                    "Los Angeles, CA 90012"
+                ]
+            },
+            "phone": "+12136200908",
+            "display_phone": "(213) 620-0908",
+            "distance": 296.7946289424164
+        },
+        {
+            "id": "ZXLsi_UFu-kXDXrUpmLumg",
+            "alias": "the-escondite-los-angeles",
+            "name": "The Escondite",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/IPXCsfXWf8plaRwLfavsIA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-escondite-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 624,
+            "categories": [
+                {
+                    "alias": "bars",
+                    "title": "Bars"
+                },
+                {
+                    "alias": "tradamerican",
+                    "title": "American (Traditional)"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.0460037041153,
+                "longitude": -118.242189306082
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "410 Boyd St",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90013",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "410 Boyd St",
+                    "Los Angeles, CA 90013"
+                ]
+            },
+            "phone": "+12136261800",
+            "display_phone": "(213) 626-1800",
+            "distance": 702.9132642643797
+        },
+        {
+            "id": "5WL1MlGdybTSrG_O2PNWlA",
+            "alias": "la-cita-los-angeles",
+            "name": "La Cita",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/IpXURJMqy0oQx1FYtWGx_A/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/la-cita-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 743,
+            "categories": [
+                {
+                    "alias": "danceclubs",
+                    "title": "Dance Clubs"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                },
+                {
+                    "alias": "sportsbars",
+                    "title": "Sports Bars"
+                }
+            ],
+            "rating": 3.5,
+            "coordinates": {
+                "latitude": 34.0507751910491,
+                "longitude": -118.249791786075
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "336 S Hill St",
+                "address2": null,
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90013",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "336 S Hill St",
+                    "Los Angeles, CA 90013"
+                ]
+            },
+            "phone": "+12136877111",
+            "display_phone": "(213) 687-7111",
+            "distance": 583.1621726574463
+        },
+        {
+            "id": "kH6ZDEux3N_YHJ4dQgFr3Q",
+            "alias": "dorothy-chandler-pavilion-los-angeles",
+            "name": "Dorothy Chandler Pavilion",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/FJDsr2j0_rf74l7v-00FtQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/dorothy-chandler-pavilion-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 186,
+            "categories": [
+                {
+                    "alias": "theater",
+                    "title": "Performing Arts"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.0565838639612,
+                "longitude": -118.248846977949
+            },
+            "transactions": [],
+            "price": "$$$",
+            "location": {
+                "address1": "135 N Grand Ave",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90012",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "135 N Grand Ave",
+                    "Los Angeles, CA 90012"
+                ]
+            },
+            "phone": "+12139727211",
+            "display_phone": "(213) 972-7211",
+            "distance": 680.041008232316
+        },
+        {
+            "id": "5ekKlyxagx4Cbm_XuuCwxw",
+            "alias": "dart-collective-los-angeles-2",
+            "name": "Dart Collective",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/wUVo0CkhprRcjgfVGn1nvQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/dart-collective-los-angeles-2?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 238,
+            "categories": [
+                {
+                    "alias": "musicians",
+                    "title": "Musicians"
+                },
+                {
+                    "alias": "djs",
+                    "title": "DJs"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 34.0355398010907,
+                "longitude": -118.250085586621
+            },
+            "transactions": [],
+            "location": {
+                "address1": null,
+                "address2": null,
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90021",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "Los Angeles, CA 90021"
+                ]
+            },
+            "phone": "+12139154375",
+            "display_phone": "(213) 915-4375",
+            "distance": 1943.7111002491097
+        },
+        {
+            "id": "vsVGA4-vCEHCBi6RUK_WFA",
+            "alias": "noe-restaurant-and-bar-los-angeles",
+            "name": "Noe Restaurant and Bar",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/SvUgFi-P1rcGWGuY1t2omw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/noe-restaurant-and-bar-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 399,
+            "categories": [
+                {
+                    "alias": "bars",
+                    "title": "Bars"
+                },
+                {
+                    "alias": "french",
+                    "title": "French"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.05256144001,
+                "longitude": -118.250604543655
+            },
+            "transactions": [],
+            "price": "$$$",
+            "location": {
+                "address1": "251 S Olive St",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90012",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "251 S Olive St",
+                    "Los Angeles, CA 90012"
+                ]
+            },
+            "phone": "+12133564100",
+            "display_phone": "(213) 356-4100",
+            "distance": 637.3687105265175
+        },
+        {
+            "id": "N1ToTqW3bsuG2x20zam4cA",
+            "alias": "orpheum-theatre-los-angeles",
+            "name": "Orpheum Theatre",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/obIszSOqMkeQjTbooaUrXg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/orpheum-theatre-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 276,
+            "categories": [
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                },
+                {
+                    "alias": "movietheaters",
+                    "title": "Cinema"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.0427632706906,
+                "longitude": -118.255439779058
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "842 S Broadway",
+                "address2": null,
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90014",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "842 S Broadway",
+                    "Los Angeles, CA 90014"
+                ]
+            },
+            "phone": "+18776774386",
+            "display_phone": "(877) 677-4386",
+            "distance": 1506.973593848713
+        },
+        {
+            "id": "76XDB7MLLyj2MXfOnFhP3Q",
+            "alias": "the-falls-los-angeles",
+            "name": "The Falls",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Du2D6zRPEtBXaAgkedbNIw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-falls-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 515,
+            "categories": [
+                {
+                    "alias": "lounges",
+                    "title": "Lounges"
+                },
+                {
+                    "alias": "karaoke",
+                    "title": "Karaoke"
+                },
+                {
+                    "alias": "pizza",
+                    "title": "Pizza"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.04512,
+                "longitude": -118.25128
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "626 S Spring St",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90014",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "626 S Spring St",
+                    "Los Angeles, CA 90014"
+                ]
+            },
+            "phone": "+12136120072",
+            "display_phone": "(213) 612-0072",
+            "distance": 1056.4071231233447
+        },
+        {
+            "id": "Rx46lSaDcJJfFfNfPLM2qw",
+            "alias": "max-karaoke-studio-los-angeles-3",
+            "name": "Max Karaoke Studio",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/LX0_jvmixBvHaDwlZ3O7zQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/max-karaoke-studio-los-angeles-3?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 433,
+            "categories": [
+                {
+                    "alias": "karaoke",
+                    "title": "Karaoke"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.0451988765783,
+                "longitude": -118.238435313106
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "333 S Alameda St",
+                "address2": "Ste 216",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90013",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "333 S Alameda St",
+                    "Ste 216",
+                    "Los Angeles, CA 90013"
+                ]
+            },
+            "phone": "+13104212550",
+            "display_phone": "(310) 421-2550",
+            "distance": 917.2311968005528
+        },
+        {
+            "id": "pl87HrR7JYUAH7ULEwj7UQ",
+            "alias": "marc-bosserman-pianist-and-vocalist-los-angeles-2",
+            "name": "Marc Bosserman Pianist & Vocalist",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/5BFuoOnerkxjLNr2HMsCcA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/marc-bosserman-pianist-and-vocalist-los-angeles-2?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 46,
+            "categories": [
+                {
+                    "alias": "musicians",
+                    "title": "Musicians"
+                },
+                {
+                    "alias": "musicproduction",
+                    "title": "Music Production Services"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 34.05349,
+                "longitude": -118.24532
+            },
+            "transactions": [],
+            "location": {
+                "address1": "",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "Los Angeles, CA"
+                ]
+            },
+            "phone": "+18182690988",
+            "display_phone": "(818) 269-0988",
+            "distance": 4.049322216540503
+        },
+        {
+            "id": "y4GAQlEL1i8ET2RqRL4b0A",
+            "alias": "tuesday-night-café-project-los-angeles-2",
+            "name": "Tuesday Night Café Project",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/iK1h_bPJKcQFy4G8SJM5pA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/tuesday-night-caf%C3%A9-project-los-angeles-2?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 57,
+            "categories": [
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 34.0507611,
+                "longitude": -118.2404192
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "120 Judge John Aiso St",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90012",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "120 Judge John Aiso St",
+                    "Los Angeles, CA 90012"
+                ]
+            },
+            "phone": "",
+            "display_phone": "",
+            "distance": 378.21799130970896
+        },
+        {
+            "id": "c1ozv7ODg7wBTEgWast0eA",
+            "alias": "rhythm-room-la-los-angeles-4",
+            "name": "Rhythm Room LA",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/HVT9L42zGryzLeVXXAguJg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/rhythm-room-la-los-angeles-4?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 159,
+            "categories": [
+                {
+                    "alias": "bars",
+                    "title": "Bars"
+                },
+                {
+                    "alias": "jazzandblues",
+                    "title": "Jazz & Blues"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.0460420449571,
+                "longitude": -118.251199635686
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "206 W 6th St",
+                "address2": null,
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90014",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "206 W 6th St",
+                    "Los Angeles, CA 90014"
+                ]
+            },
+            "phone": "",
+            "display_phone": "",
+            "distance": 984.9947040513225
+        },
+        {
+            "id": "PdFV7_kB6w9hkEcz5pijDA",
+            "alias": "resident-los-angeles-2",
+            "name": "Resident",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/tMUoORx0AKg6FX8RuXdzjA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/resident-los-angeles-2?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 295,
+            "categories": [
+                {
+                    "alias": "cocktailbars",
+                    "title": "Cocktail Bars"
+                },
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                },
+                {
+                    "alias": "beergardens",
+                    "title": "Beer Gardens"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.042667388916,
+                "longitude": -118.234924316406
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "428 S Hewitt St",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90013",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "428 S Hewitt St",
+                    "Los Angeles, CA 90013"
+                ]
+            },
+            "phone": "",
+            "display_phone": "",
+            "distance": 1333.2198223168784
+        },
+        {
+            "id": "-5jlXpj4yQwh7fnCEVDvCA",
+            "alias": "hollywood-bowl-los-angeles-4",
+            "name": "Hollywood Bowl",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/-WnHaEL3zkhYgHo7HldgpA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/hollywood-bowl-los-angeles-4?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 2124,
+            "categories": [
+                {
+                    "alias": "musicvenues",
+                    "title": "Music Venues"
+                },
+                {
+                    "alias": "stadiumsarenas",
+                    "title": "Stadiums & Arenas"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.112705920806,
+                "longitude": -118.338906168833
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "2301 N Highland Ave",
+                "address2": "",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90068",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "2301 N Highland Ave",
+                    "Los Angeles, CA 90068"
+                ]
+            },
+            "phone": "+13238502000",
+            "display_phone": "(323) 850-2000",
+            "distance": 11051.850536493386
+        },
+        {
+            "id": "wFHCxZnqECrrv_ebksvxNg",
+            "alias": "tokyo-beat-los-angeles",
+            "name": "Tokyo Beat",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/KrfB7pD2m-ruwHKXy3J0-A/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/tokyo-beat-los-angeles?adjust_creative=Q9uz9ngwHEDMx6MbWxW1jQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Q9uz9ngwHEDMx6MbWxW1jQ",
+            "review_count": 173,
+            "categories": [
+                {
+                    "alias": "japanese",
+                    "title": "Japanese"
+                },
+                {
+                    "alias": "karaoke",
+                    "title": "Karaoke"
+                },
+                {
+                    "alias": "lounges",
+                    "title": "Lounges"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.0493615046812,
+                "longitude": -118.240656852722
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "319 E 2nd St",
+                "address2": "Ste 205",
+                "address3": "",
+                "city": "Los Angeles",
+                "zip_code": "90012",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "319 E 2nd St",
+                    "Ste 205",
+                    "Los Angeles, CA 90012"
+                ]
+            },
+            "phone": "+12136255708",
+            "display_phone": "(213) 625-5708",
+            "distance": 422.1652968329634
+        }
+    ],
+    "total": 473,
+    "region": {
+        "center": {
+            "longitude": -118.2437,
+            "latitude": 34.0522
+        }
+    }
+}

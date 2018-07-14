@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import InputFields from "./inputs";
 import AppBar from "./appbar";
 
@@ -8,7 +7,7 @@ class App extends Component {
     return (
       <div>
         <AppBar />
-        <InputFields />{" "}
+        <InputFields />
       </div>
     );
   }
