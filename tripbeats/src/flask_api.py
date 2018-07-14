@@ -16,14 +16,13 @@ def get_request():
 
 	fromaddr = 'no-reply@tripbeats.com'
 
-	server = smtplib.SMTP('smtp.gmail.com', 587)
-	server.starttls()
+	server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 
 	with open('email_login.json') as f:
 	    data = json.load(f)
 
 	server.login(data['id'], data['passwd'])
-
+	
 	for person in body['trip']['people']:
 		msg = MIMEMultipart()
 		msg['From'] = fromaddr
@@ -38,12 +37,13 @@ def get_request():
 	server.quit()
 
 
-"""
-server = smtplib.SMTP('smtp.googlemail.com', 25)
-server.starttls()
 
+server.ehlo()
 with open('email_login.json') as f:
     data = json.load(f)
+
+print(data['id'])
+print(data['passwd'])
 
 server.login(data['id'], data['passwd'])
 msg = MIMEMultipart()
@@ -57,4 +57,4 @@ text = msg.as_string()
 server.sendmail('no-reply@tripbeats.com', 'ghwo8844@gmail.com', text)
 
 server.quit()
-"""
+
