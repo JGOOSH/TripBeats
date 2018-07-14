@@ -42,5 +42,3 @@ def get_Event(destination, departure, arrival) :
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     return response.json()
-
-# get_Event({"latitude" : 34.0522 , "longitude" : -118.2437}, 234, 12)
