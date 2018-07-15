@@ -24,7 +24,7 @@ def get_playlist(destination):
     parsed = json.loads(response)["playlists"]
     target_name = "The Sound of " + destination
 
-    if parsed["tracks"]["total"] > 0:
+    if parsed["total"] > 0:
         for item in parsed["items"]:
             if target_name in item["name"]:
                 return item["tracks"]["href"]
@@ -95,7 +95,8 @@ def get_request():
     PARAMS = {
         "name" : playlist_name
     }
-    playlist_info = json.loads(requests.post(url=URL, params=PARAMS, headers=HEADERS).text)
+    playlist_info = json.loads(requests.post(url=URL, json=PARAMS, headers=HEADERS).text)
+    print(playlist_info)
     playlist_id = playlist_info['id']
     playlist_url = playlist_info['external_urls']['spotify']
     
@@ -103,7 +104,7 @@ def get_request():
     if spotify_playlist_url is not None:
         HEADERS = { "Authorization" : "Bearer " + user_token }
         PARAMS = { "limit" : "50" }
-        res = json.loads(requests.get(url=spotify_playlist_url, params=PARAMS, headers=HEADERS))
+        res = json.loads(requests.get(url=spotify_playlist_url, params=PARAMS, headers=HEADERS).text)
         tracks_list = [track['track']['uri'] for track in res['items']]
 
         URL = "https://api.spotify.com/v1/users/{}/playlists/{}/tracks".format(user_id, playlist_id)
@@ -128,12 +129,13 @@ def get_request():
         body = "Spotify Playlist: {}\n Add your library to the playlist: http://localhost:5000/addsongs/{}__{}\n".format(playlist_url, user_id, playlist_id) 
         msg.attach(MIMEText(body, 'plain'))
         text = msg.as_string()
-        server.sendmail(fromaddr, person['email'], text)
+        if len(person['email']) > 0:
+            server.sendmail(fromaddr, person['email'], text)
 
     server.quit()
 
     data = {
-        'spotify' : spotify_playlist
+        'spotify' : playlist_url
     }
 
     resp = jsonify(data)
@@ -166,31 +168,35 @@ def callback_first_user():
     print (token)
     return token
 
-@app.route("/addsongs/<playlist_id>", methods=['POST'])
+global_playlist_id = ""
+
+@app.route("/addsongs/<playlist_id>")
 def add_songs(playlist_id):
     # If we use personal data:
     URL = "https://accounts.spotify.com/authorize"
     PARAMS = {
         "client_id": SPOTIFY_CLIENT_ID,
         "response_type": "code",
-        "redirect_uri": REDIRECT_URI_ADD_SONGS + playlist_id, # set redirect uri
+        "redirect_uri": REDIRECT_URI_ADD_SONGS, # set redirect uri
         "scope": "user-top-read"
     }
     args = "&".join(["{}={}".format(key,urllib.parse.quote(val)) for key,val in PARAMS.items()])
     auth_url = "{}/?{}".format(URL, args)
+    global_playlist_id = playlist_id
     return redirect(auth_url)
 
-@app.route("/callback/addsongs/<playlist_id>")
-def callback_add_songs(playlist_id):
-    user_token = callback_get_token(REDIRECT_URI_ADD_SONGS + playlist_id)
-
+@app.route("/callback/addsongs/")
+def callback_add_songs():
+    user_token = callback_get_token(REDIRECT_URI_ADD_SONGS)
+    print(user_token)
     URL = "https://api.spotify.com/v1/me/tracks"
     HEADERS = { "Authorization" : "Bearer: " + user_token }
     PARAMS = { "limit" : "5" }
     res = json.loads(requests.get(url=URL, headers=HEADERS, params=PARAMS).text)
+    print(res)
     tracks_list = [track['track']['uri'] for track in res['items']]
 
-    user_playlist = playlist_id.split("__")
+    user_playlist = global_playlist_id.split("__")
 
     URL = "https://api.spotify.com/v1/users/{}/playlists/{}/tracks".format(user_playlist[0], user_playlist[1])
     HEADERS = { 
