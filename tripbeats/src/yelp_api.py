@@ -5,7 +5,7 @@ with open('yelp.json') as f:
     data = json.load(f)
 apiKey = data['apiKey']
 
-def get_Businesses(destination) :
+def get_businesses(destination) :
     url = "https://api.yelp.com/v3/businesses/search"
 
     querystring = {
@@ -24,7 +24,7 @@ def get_Businesses(destination) :
     return response.json()
 
 
-def get_Event(destination, departure, arrival) :
+def get_event(destination, departure, arrival) :
     url = "https://api.yelp.com/v3/events"
 
     querystring = {
@@ -43,6 +43,3 @@ def get_Event(destination, departure, arrival) :
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     return response.json()
-
-
-print(get_Businesses({"latitude": 34.0522 , "longitude": -118.2437 }))

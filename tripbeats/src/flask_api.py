@@ -4,9 +4,11 @@ import requests
 import smtplib
 import base64
 import urllib.parse
+import yelp_api
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask_cors import CORS
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
@@ -139,8 +141,24 @@ def get_request():
 
     server.quit()
 
+    lon = body['geo']['longitude']
+    lat = body['geo']['latitude']
+    dest = { 'longitude' : lon, 'latitude' : lat }
+    dep = map(int, body['trip']['departure'].split('-'))
+    arr = map(int, body['trip']['arrival'].split('-'))
+    dep[1] -= 1
+    arr[1] += 1
+
+    dep_dt = datetime(dep[2], dep[0], dep[1]).total_seconds()
+    arr_dt = datetime(arr[2], arr[0], arr[1]).total_seconds()
+
+    businesses = yelp.get_businesses(dest)
+    events = yelp.get_events(dest, dep_dt, arr_dt)
+
     data = {
-        'spotify' : playlist_url
+        'spotify' : playlist_url,
+        'businesses' : businesses,
+        'events' : events
     }
 
     resp = jsonify(data)
@@ -241,7 +259,6 @@ def callback_get_token(redirect_uri):
     #     access_token = refresh_access_token(refresh_token)
 
     return (access_token, refresh_token)
-
 
 
 if __name__ == "__main__":
