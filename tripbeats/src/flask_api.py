@@ -8,6 +8,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask_cors import CORS
 
+app = Flask(__name__)
+CORS(app)
+
 with open('spotify_token.json') as f:
         token_json = json.load(f)
 
@@ -68,9 +71,6 @@ def refresh_access_token(refresh_token):
     }
     refresh_response = requests.post(url=URL, data=DATA, headers=HEADERS)
     return json.loads(refresh_response.text)["access_token"]
-
-app = Flask(__name__)
-CORS(app)
 
 @app.route("/getthething", methods=['POST'])
 def get_request():
@@ -149,6 +149,7 @@ def get_first_user():
     }
     args = "&".join(["{}={}".format(key,urllib.parse.quote(val)) for key,val in PARAMS.items()])
     auth_url = "{}/?{}".format(URL, args)
+    return "BQAU20onWI2jsZZD4hN1xNJzezakPNGiJ27biU394WLW8CdtEOsM0GAxlU-lIzvwNm7hc-nxODAflyIpfGOLFSn_RFd_8GE7mnMGbc4tXtZjOuy1xGp1QdBWvnPSUf65B7romd9WX4q4qTgKA_9HcLRv3XwYfkJT7QgXr5njcqp0m7UeL0fcjeJLVWqhAtnHhO8gckYzwzsEJBTaDV8bN6PuenAx5hT3Vso3TqJRh3MLfwALQAje4u6HWoQ2dbEKGJ-Gv5JJh0PzKw"
     return redirect(auth_url)
     """ 
     Figure out what response_url object looks like and extract authorization code from it: 
@@ -158,7 +159,9 @@ def get_first_user():
 
 @app.route("/callback/firstuser")
 def callback_first_user():
-    return callback_get_token(REDIRECT_URI_FIRST_USER)
+    token = callback_get_token(REDIRECT_URI_FIRST_USER)
+    print (token)
+    return token
 
 @app.route("/addsongs/<playlist_id>", methods=['POST'])
 def add_songs(playlist_id):
@@ -193,10 +196,10 @@ def callback_get_token(redirect_uri):
     auth_response = requests.post(url=post_URL, data=DATA, headers=HEADERS)
     parsed_auth = json.loads(auth_response.text)
     access_token = parsed_auth["access_token"]
-    refresh_token = parsed_auth["refresh_token"]
-    # Make API calls, get songs from playlists, combine playlists, and if response is error do the following to refresh and get new access token
-    if error:
-        access_token = refresh_access_token(refresh_token)
+    # refresh_token = parsed_auth["refresh_token"]
+    # # Make API calls, get songs from playlists, combine playlists, and if response is error do the following to refresh and get new access token
+    # if error:
+    #     access_token = refresh_access_token(refresh_token)
 
     return access_token
 
