@@ -6,7 +6,6 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-import tileData from "./tileData";
 import sampleInput from "./eventSampleInput.json";
 
 const styles = theme => ({
@@ -49,12 +48,13 @@ const styles = theme => ({
  * ];
  */
 function SingleLineGridList(props) {
-  const { classes } = props;
+  const { classes, data } = props;
 
+  console.log(data);
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
-        {sampleInput.events.map(event => (
+        {data.events.map(event => (
           <GridListTile key={event.id}>
             <img src={event.image_url} alt={event.name} />
             <GridListTileBar

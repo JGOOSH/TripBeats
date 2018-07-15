@@ -24,7 +24,7 @@ def get_businesses(destination) :
     return response.json()
 
 
-def get_event(destination, departure, arrival) :
+def get_events(destination, departure, arrival) :
     url = "https://api.yelp.com/v3/events"
 
     querystring = {

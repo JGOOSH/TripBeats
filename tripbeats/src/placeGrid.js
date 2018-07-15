@@ -6,7 +6,6 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-import tileData from "./tileData";
 import sampleInput from "./sampleOutput.json";
 
 const styles = theme => ({
@@ -32,14 +31,16 @@ const styles = theme => ({
 });
 
 function SingleLineGridList(props) {
-  const { classes } = props;
+  const { classes, data } = props;
 
-  console.log(sampleInput);
+  //   console.log(sampleInput);
+
+  console.log(data);
 
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
-        {sampleInput.businesses.map(place => (
+        {data.businesses.map(place => (
           <GridListTile key={place.id}>
             <img src={place.image_url} alt={place.name} />
             <GridListTileBar

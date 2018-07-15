@@ -11,8 +11,6 @@ const geocodingClient = mbxGeocoding({
     "pk.eyJ1Ijoiamdvb2VvZyIsImEiOiJjamlidzY0ajEwMTd1M3BvYWtsMmdjMnI0In0.FEG5PGhv_NHOXr0WkDi2zg"
 });
 
-console.log(geocodingClient);
-
 const styles = theme => ({
   container: {
     display: "flex",
@@ -28,21 +26,25 @@ const styles = theme => ({
   }
 });
 
-const fetchInputData = async data => {
-  data.playlist = {
-    token:
-      "BQA7TiS6gp8f2yiklh5ZLxogbctRJhdXBQ9esTT9FQtKnuHO0rfXxC5gknEt_X5U3JpfYTEqIWFebMOJFvX-ZS3KHldSHF1XEWPd2qzFAax_AruAveTV3qCFyAhoR-XWNSPetx5ryD5Ono_QtAeEXAPvvmIGdL9f2awjXYN64O9ZdE_oOtl82UaLygOXfUrSE5Q8flL39bmJNdMXDTRKW3mITCPhm-5_LOhInP8bCEKNRdffOWUYHc9XQ3ySJsviff_-KCRn--qGcA"
-  };
-  const request = await fetch("http://localhost:5000/getthething", {
-    headers: {
-      "Content-Type": "application/json"
-    },
-    method: "POST",
-    body: JSON.stringify(data)
-  });
-};
+// const fetchInputData = async data => {
+//   data.playlist = {
+//     token:
+//       "BQAXOq-8VLN4bKb-jo50eatLcbx5_E_HmKhif_AIxT1AbFRfgB1AWGmUeLPvut_lZKdlvCNTtKTAknqKOFAy2HYRD8GKpDdOA7oxCAQKAWOvqRyHIs6yiRoNkoTiPPUKZKs0Xh6g0GQ9eMI4orO4zjnBs0N0aoaGohWoV4ROtU-ve2k2V24DnUcNaFS3hdq7pZIdr4l5dSUOrb6EUbjqUKQqFbNC9pz-X4lBe66UEigg7x8Nj_FEEjNWK49CMFUOlwHoSVC9cpqQ-A"
+//   };
+//   const request = await fetch("http://localhost:5000/getthething", {
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     method: "POST",
+//     body: JSON.stringify(data)
+//   });
 
-const scrapeUserInput = list => {
+//   const result = await request.json();
+
+//   console.log(result);
+// };
+
+const scrapeUserInput = (list, fetchInputData) => {
   let dest = document.getElementById("destination").value;
   let depart = document.getElementById("departure").value;
   let ret = document.getElementById("return").value;
@@ -78,8 +80,8 @@ const scrapeUserInput = list => {
         latitude: features[0].center[1],
         longitude: features[0].center[0]
       };
+      fetchInputData(data);
     });
-  fetchInputData(data);
   return data;
 };
 
@@ -117,7 +119,8 @@ class InputFields extends Component {
   state = {
     isSubmitted: false,
     userInputList: [],
-    travelData: []
+    travelData: [],
+    result: {}
   };
 
   constructor(props) {
@@ -128,6 +131,22 @@ class InputFields extends Component {
   }
 
   render() {
+    const fetchInputData = async data => {
+      data.playlist = {
+        token:
+          "BQAXOq-8VLN4bKb-jo50eatLcbx5_E_HmKhif_AIxT1AbFRfgB1AWGmUeLPvut_lZKdlvCNTtKTAknqKOFAy2HYRD8GKpDdOA7oxCAQKAWOvqRyHIs6yiRoNkoTiPPUKZKs0Xh6g0GQ9eMI4orO4zjnBs0N0aoaGohWoV4ROtU-ve2k2V24DnUcNaFS3hdq7pZIdr4l5dSUOrb6EUbjqUKQqFbNC9pz-X4lBe66UEigg7x8Nj_FEEjNWK49CMFUOlwHoSVC9cpqQ-A"
+      };
+      const request = await fetch("http://localhost:5000/getthething", {
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify(data)
+      });
+
+      const result = await request.json();
+      this.setState({ result: result });
+    };
     const { classes } = this.props;
     const { userInputList, isSubmitted, isWrong } = this.state;
     if (!isSubmitted)
@@ -170,7 +189,7 @@ class InputFields extends Component {
               variant="contained"
               className={classes.button}
               onClick={() => {
-                let data = scrapeUserInput(userInputList);
+                let data = scrapeUserInput(userInputList, fetchInputData);
                 if (data !== false)
                   this.setState({ isSubmitted: true, travelData: data });
                 else this.setState({ isWrong: true });
@@ -182,7 +201,13 @@ class InputFields extends Component {
           <InputSnackBar isWrong={this.state.isWrong} />
         </div>
       );
-    else return <Submitted travelData={this.state.travelData} />;
+    else
+      return (
+        <Submitted
+          travelData={this.state.travelData}
+          result={this.state.result}
+        />
+      );
   }
 }
 
