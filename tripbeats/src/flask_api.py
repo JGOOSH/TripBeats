@@ -81,7 +81,7 @@ def get_request():
     for person in body['people']:
     	name += "{} {} ".format(person['firstName'], person['lastName'])
     name += "Trip to {}".format(dest)
-    playlist_name = body['playlist']['name']
+    playlist_name = name
 
     URL = "https://api.spotify.com/v1/me"
     HEADERS = { "Authorization" : "Bearer " + user_token }
