@@ -1,4 +1,4 @@
-from flask import Flask, request, Response, jsonify
+from flask import Flask, request, Response, jsonify, redirect
 import json
 import requests
 import smtplib
