@@ -146,7 +146,8 @@ def get_first_user():
         "redirect_uri": REDIRECT_URI_FIRST_USER, # set redirect uri
         "scope": "user-top-read"
     }
-    auth_url = requests.get(url=URL, params=PARAMS).args['code']
+    args = "&".join(["{}={}".format(key,urllib.quote(val)) for key,val in PARAMS.iteritems()])
+    auth_url = "{}/?{}".format(URL, url_args)
     return redirect(auth_url)
     """ 
     Figure out what response_url object looks like and extract authorization code from it: 
@@ -168,7 +169,8 @@ def add_songs(playlist_id):
         "redirect_uri": REDIRECT_URI_ADD_SONGS + playlist_id, # set redirect uri
         "scope": "user-top-read"
     }
-    auth_url = requests.get(url=URL, params=PARAMS).args['code']
+    args = "&".join(["{}={}".format(key,urllib.quote(val)) for key,val in PARAMS.iteritems()])
+    auth_url = "{}/?{}".format(URL, url_args)
     return redirect(auth_url)
 
 @app.route("/callback/addsongs/<playlist_id>")
