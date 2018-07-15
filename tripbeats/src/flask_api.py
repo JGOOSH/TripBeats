@@ -3,7 +3,7 @@ import json
 import requests
 import smtplib
 import base64
-import urllib
+import urllib.parse
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask_cors import CORS
@@ -147,7 +147,7 @@ def get_first_user():
         "redirect_uri": REDIRECT_URI_FIRST_USER, # set redirect uri
         "scope": "user-top-read"
     }
-    args = "&".join(["{}={}".format(key,urllib.quote(val)) for key,val in PARAMS.items()])
+    args = "&".join(["{}={}".format(key,urllib.parse.quote(val)) for key,val in PARAMS.items()])
     auth_url = "{}/?{}".format(URL, url_args)
     return redirect(auth_url)
     """ 
@@ -170,7 +170,7 @@ def add_songs(playlist_id):
         "redirect_uri": REDIRECT_URI_ADD_SONGS + playlist_id, # set redirect uri
         "scope": "user-top-read"
     }
-    args = "&".join(["{}={}".format(key,urllib.quote(val)) for key,val in PARAMS.items()])
+    args = "&".join(["{}={}".format(key,urllib.parse.quote(val)) for key,val in PARAMS.items()])
     auth_url = "{}/?{}".format(URL, url_args)
     return redirect(auth_url)
 
