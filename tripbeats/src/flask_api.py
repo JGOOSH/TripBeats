@@ -79,7 +79,7 @@ def get_request():
     user_token = body['playlist']['token']
     name = ""
     for person in body['people']:
-    	name += "{} {} ".format(person['firstName']['lastName'])
+    	name += "{} {} ".format(person['firstName'], person['lastName'])
     name += "Trip to {}".format(dest)
     playlist_name = body['playlist']['name']
 
