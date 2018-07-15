@@ -3,6 +3,15 @@ import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Submitted from "./submittedPage";
+import InputSnackBar from "./InputSnackBar";
+
+const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
+const geocodingClient = mbxGeocoding({
+  accessToken:
+    "pk.eyJ1Ijoiamdvb2VvZyIsImEiOiJjamlidzY0ajEwMTd1M3BvYWtsMmdjMnI0In0.FEG5PGhv_NHOXr0WkDi2zg"
+});
+
+console.log(geocodingClient);
 
 const styles = theme => ({
   container: {
@@ -20,6 +29,10 @@ const styles = theme => ({
 });
 
 const fetchInputData = async data => {
+  data.playlist = {
+    token:
+      "BQA7TiS6gp8f2yiklh5ZLxogbctRJhdXBQ9esTT9FQtKnuHO0rfXxC5gknEt_X5U3JpfYTEqIWFebMOJFvX-ZS3KHldSHF1XEWPd2qzFAax_AruAveTV3qCFyAhoR-XWNSPetx5ryD5Ono_QtAeEXAPvvmIGdL9f2awjXYN64O9ZdE_oOtl82UaLygOXfUrSE5Q8flL39bmJNdMXDTRKW3mITCPhm-5_LOhInP8bCEKNRdffOWUYHc9XQ3ySJsviff_-KCRn--qGcA"
+  };
   const request = await fetch("http://localhost:5000/getthething", {
     headers: {
       "Content-Type": "application/json"
@@ -30,21 +43,42 @@ const fetchInputData = async data => {
 };
 
 const scrapeUserInput = list => {
+  let dest = document.getElementById("destination").value;
+  let depart = document.getElementById("departure").value;
+  let ret = document.getElementById("return").value;
+  if (dest === "" || depart === "" || ret === "") return false;
   const trip = {
-    destination: document.getElementById("destination").value,
-    departure: document.getElementById("departure").value,
-    return: document.getElementById("return").value
+    destination: dest,
+    departure: depart,
+    return: ret
   };
   let people = [];
   var i;
   for (i = 0; i < list.length; i++) {
+    let fname = document.getElementById(`first_name-${i}`).value;
+    let lname = document.getElementById(`last_name-${i}`).value;
+    let uEmail = document.getElementById(`email-${i}`).value;
+    if (fname === "" || lname === "" || uEmail === "") return false;
     people.push({
-      firstName: document.getElementById(`first_name-${i}`).value,
-      lastName: document.getElementById(`last_name-${i}`).value,
-      email: document.getElementById(`email-${i}`).value
+      firstName: fname,
+      lastName: lname,
+      email: uEmail
     });
   }
   const data = { trip, people };
+  geocodingClient
+    .forwardGeocode({
+      query: trip.destination,
+      limit: 1
+    })
+    .send()
+    .then(response => {
+      const { features } = response.body;
+      data.geo = {
+        latitude: features[0].center[1],
+        longitude: features[0].center[0]
+      };
+    });
   fetchInputData(data);
   return data;
 };
@@ -95,7 +129,7 @@ class InputFields extends Component {
 
   render() {
     const { classes } = this.props;
-    const { userInputList, isSubmitted } = this.state;
+    const { userInputList, isSubmitted, isWrong } = this.state;
     if (!isSubmitted)
       return (
         <div>
@@ -137,12 +171,15 @@ class InputFields extends Component {
               className={classes.button}
               onClick={() => {
                 let data = scrapeUserInput(userInputList);
-                this.setState({ isSubmitted: true, travelData: data });
+                if (data !== false)
+                  this.setState({ isSubmitted: true, travelData: data });
+                else this.setState({ isWrong: true });
               }}
             >
               Submit
             </Button>
           </div>
+          <InputSnackBar isWrong={this.state.isWrong} />
         </div>
       );
     else return <Submitted travelData={this.state.travelData} />;
