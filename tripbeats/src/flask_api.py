@@ -79,8 +79,10 @@ aman_token = ""
 @app.route("/getthething", methods=['POST'])
 def get_request():
     body = request.get_json(force=True)
+    print(body)
     dest = body['trip']['destination']
     user_token = body['playlist']['token']
+
     name = ""
     for person in body['people']:
         name += "{} {} ".format(person['firstName'], person['lastName'])
@@ -106,8 +108,17 @@ def get_request():
     playlist_info = json.loads(requests.post(url=URL, json=PARAMS, headers=HEADERS).text)
     playlist_id = playlist_info['id']
     playlist_url = playlist_info['external_urls']['spotify']
-    
+
     spotify_playlist_url = get_playlist(dest)
+
+    lon = body['geo']['longitude']
+    lat = body['geo']['latitude']
+    dest_dict = { 'longitude' : lon, 'latitude' : lat }
+    dep = list(map(int, body['trip']['departure'].split('-')))
+    arr = list(map(int, body['trip']['return'].split('-')))
+    dep[1] -= 1
+    arr[1] += 1
+    
     if spotify_playlist_url is not None:
         HEADERS = { "Authorization" : "Bearer " + user_token }
         PARAMS = { "limit" : "50" }
@@ -141,19 +152,11 @@ def get_request():
 
     server.quit()
 
-    lon = body['geo']['longitude']
-    lat = body['geo']['latitude']
-    dest = { 'longitude' : lon, 'latitude' : lat }
-    dep = map(int, body['trip']['departure'].split('-'))
-    arr = map(int, body['trip']['arrival'].split('-'))
-    dep[1] -= 1
-    arr[1] += 1
+    dep_dt = int((datetime(dep[2], dep[0], dep[1]) - datetime(1970, 1, 1)).total_seconds())
+    arr_dt = int((datetime(arr[2], arr[0], arr[1]) - datetime(1970, 1, 1)).total_seconds())
 
-    dep_dt = datetime(dep[2], dep[0], dep[1]).total_seconds()
-    arr_dt = datetime(arr[2], arr[0], arr[1]).total_seconds()
-
-    businesses = yelp.get_businesses(dest)
-    events = yelp.get_events(dest, dep_dt, arr_dt)
+    businesses = yelp_api.get_businesses(dest_dict)
+    events = yelp_api.get_events(dest_dict, dep_dt, arr_dt)
 
     data = {
         'spotify' : playlist_url,
