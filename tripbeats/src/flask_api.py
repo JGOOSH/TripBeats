@@ -77,6 +77,10 @@ def get_request():
     body = request.get_json(force=True)
     dest = body['trip']['destination']
     user_token = body['playlist']['token']
+    name = ""
+    for person in body['people']:
+    	name += "{} {} ".format(person[firstName][lastName])
+    name += "Trip to {}".format(dest)
     playlist_name = body['playlist']['name']
 
     URL = "https://api.spotify.com/v1/me"
@@ -121,7 +125,7 @@ def get_request():
         msg['To'] = person['email']
         msg['Subject'] = 'Your Trip to ' + dest
 
-        body = "Spotify Playlist: {}\n Add your library to the playlist: http://localhost:5000/addsongs/{}\n".format(playlist_url, playlist_id) 
+        body = "Spotify Playlist: {}\n Add your library to the playlist: http://localhost:5000/addsongs/{}__{}\n".format(playlist_url, user_id, playlist_id) 
         msg.attach(MIMEText(body, 'plain'))
         text = msg.as_string()
         server.sendmail(fromaddr, person['email'], text)
@@ -149,7 +153,6 @@ def get_first_user():
     }
     args = "&".join(["{}={}".format(key,urllib.parse.quote(val)) for key,val in PARAMS.items()])
     auth_url = "{}/?{}".format(URL, args)
-    return "BQAU20onWI2jsZZD4hN1xNJzezakPNGiJ27biU394WLW8CdtEOsM0GAxlU-lIzvwNm7hc-nxODAflyIpfGOLFSn_RFd_8GE7mnMGbc4tXtZjOuy1xGp1QdBWvnPSUf65B7romd9WX4q4qTgKA_9HcLRv3XwYfkJT7QgXr5njcqp0m7UeL0fcjeJLVWqhAtnHhO8gckYzwzsEJBTaDV8bN6PuenAx5hT3Vso3TqJRh3MLfwALQAje4u6HWoQ2dbEKGJ-Gv5JJh0PzKw"
     return redirect(auth_url)
     """ 
     Figure out what response_url object looks like and extract authorization code from it: 
@@ -179,7 +182,22 @@ def add_songs(playlist_id):
 
 @app.route("/callback/addsongs/<playlist_id>")
 def callback_add_songs(playlist_id):
-    access_token = callback_get_token(REDIRECT_URI_ADD_SONGS + playlist_id)
+    user_token = callback_get_token(REDIRECT_URI_ADD_SONGS + playlist_id)
+
+    URL = "https://api.spotify.com/v1/me/tracks"
+    HEADERS = { "Authorization" : "Bearer: " + user_token }
+    PARAMS = { "limit" : "5" }
+    res = json.loads(requests.get(url=URL, headers=HEADERS, params=PARAMS).text)
+    tracks_list = [track['track']['uri'] for track in res['items']]
+
+    user_playlist = playlist_id.split("__")
+
+    URL = "https://api.spotify.com/v1/users/{}/playlists/{}/tracks".format(user_playlist[0], user_playlist[1])
+    HEADERS = { 
+        "Authorization" : "Bearer " + user_token,
+        "Content-Type" : "application/json"
+    }
+    requests.post(url=URL, headers=HEADERS, json=tracks_list)
 
 
 def callback_get_token(redirect_uri):
