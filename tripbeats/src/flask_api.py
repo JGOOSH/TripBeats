@@ -148,7 +148,7 @@ def get_first_user():
         "scope": "user-top-read"
     }
     args = "&".join(["{}={}".format(key,urllib.parse.quote(val)) for key,val in PARAMS.items()])
-    auth_url = "{}/?{}".format(URL, url_args)
+    auth_url = "{}/?{}".format(URL, args)
     return redirect(auth_url)
     """ 
     Figure out what response_url object looks like and extract authorization code from it: 
@@ -171,7 +171,7 @@ def add_songs(playlist_id):
         "scope": "user-top-read"
     }
     args = "&".join(["{}={}".format(key,urllib.parse.quote(val)) for key,val in PARAMS.items()])
-    auth_url = "{}/?{}".format(URL, url_args)
+    auth_url = "{}/?{}".format(URL, args)
     return redirect(auth_url)
 
 @app.route("/callback/addsongs/<playlist_id>")
