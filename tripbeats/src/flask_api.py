@@ -17,7 +17,7 @@ with open('spotify_token.json') as f:
 SPOTIFY_AUTH_TOKEN = base64.b64encode(token_json['token'].encode('utf-8')).decode('ascii')
 SPOTIFY_CLIENT_ID = token_json['client']
 REDIRECT_URI_FIRST_USER = "http://localhost:5000/callback/firstuser"
-REDIRECT_URI_ADD_SONGS = "http://localhost:5000/callback/addsongs/"
+REDIRECT_URI_ADD_SONGS = "http://localhost:5000/callback/addsongs"
 
 def get_playlist(destination):
     response = get_list(destination)
@@ -72,6 +72,8 @@ def refresh_access_token(refresh_token):
     refresh_response = requests.post(url=URL, data=DATA, headers=HEADERS)
     return json.loads(refresh_response.text)["access_token"]
 
+aman_token = ""
+
 @app.route("/getthething", methods=['POST'])
 def get_request():
     body = request.get_json(force=True)
@@ -79,9 +81,11 @@ def get_request():
     user_token = body['playlist']['token']
     name = ""
     for person in body['people']:
-    	name += "{} {} ".format(person['firstName'], person['lastName'])
+        name += "{} {} ".format(person['firstName'], person['lastName'])
     name += "Trip to {}".format(dest)
     playlist_name = name
+
+    global aman_token
 
     URL = "https://api.spotify.com/v1/me"
     HEADERS = { "Authorization" : "Bearer " + user_token }
@@ -95,8 +99,9 @@ def get_request():
     PARAMS = {
         "name" : playlist_name
     }
+
+    aman_token = user_token
     playlist_info = json.loads(requests.post(url=URL, json=PARAMS, headers=HEADERS).text)
-    print(playlist_info)
     playlist_id = playlist_info['id']
     playlist_url = playlist_info['external_urls']['spotify']
     
@@ -165,7 +170,6 @@ def get_first_user():
 @app.route("/callback/firstuser")
 def callback_first_user():
     token = callback_get_token(REDIRECT_URI_FIRST_USER)
-    print (token)
     return token
 
 global_playlist_id = ""
@@ -173,12 +177,13 @@ global_playlist_id = ""
 @app.route("/addsongs/<playlist_id>")
 def add_songs(playlist_id):
     # If we use personal data:
+    global global_playlist_id
     URL = "https://accounts.spotify.com/authorize"
     PARAMS = {
         "client_id": SPOTIFY_CLIENT_ID,
         "response_type": "code",
         "redirect_uri": REDIRECT_URI_ADD_SONGS, # set redirect uri
-        "scope": "user-top-read"
+        "scope": "user-library-read"
     }
     args = "&".join(["{}={}".format(key,urllib.parse.quote(val)) for key,val in PARAMS.items()])
     auth_url = "{}/?{}".format(URL, args)
@@ -187,23 +192,33 @@ def add_songs(playlist_id):
 
 @app.route("/callback/addsongs/")
 def callback_add_songs():
-    user_token = callback_get_token(REDIRECT_URI_ADD_SONGS)
-    print(user_token)
+    global global_playlist_id
+    user_token, refresh_token = callback_get_token(REDIRECT_URI_ADD_SONGS)
+
     URL = "https://api.spotify.com/v1/me/tracks"
-    HEADERS = { "Authorization" : "Bearer: " + user_token }
+    HEADERS = { "Authorization" : "Bearer " + user_token }
     PARAMS = { "limit" : "5" }
     res = json.loads(requests.get(url=URL, headers=HEADERS, params=PARAMS).text)
-    print(res)
+
+    while 'items' not in res:
+        access_token = refresh_access_token
+        HEADERS = { "Authorization" : "Bearer " + user_token }
+        res = json.loads(requests.get(url=URL, headers=HEADERS, params=PARAMS).text)
+
     tracks_list = [track['track']['uri'] for track in res['items']]
 
-    user_playlist = global_playlist_id.split("__")
+    user_playlist = global_playlist_id.split('__')
+    global aman_token
+
+    print(json.dumps(tracks_list))
 
     URL = "https://api.spotify.com/v1/users/{}/playlists/{}/tracks".format(user_playlist[0], user_playlist[1])
     HEADERS = { 
-        "Authorization" : "Bearer " + user_token,
-        "Content-Type" : "application/json"
+        "Authorization" : "Bearer " + aman_token,
+    	"Content-Type" : "application/json"
     }
-    requests.post(url=URL, headers=HEADERS, json=tracks_list)
+    print(json.loads(requests.post(url=URL, data=json.dumps(tracks_list), headers=HEADERS).text))
+    return "Your tracks are added to the playlist! You may close this page now."
 
 
 def callback_get_token(redirect_uri):
@@ -220,14 +235,14 @@ def callback_get_token(redirect_uri):
     auth_response = requests.post(url=post_URL, data=DATA, headers=HEADERS)
     parsed_auth = json.loads(auth_response.text)
     access_token = parsed_auth["access_token"]
-    # refresh_token = parsed_auth["refresh_token"]
+    refresh_token = parsed_auth["refresh_token"]
     # # Make API calls, get songs from playlists, combine playlists, and if response is error do the following to refresh and get new access token
     # if error:
     #     access_token = refresh_access_token(refresh_token)
 
-    return access_token
+    return (access_token, refresh_token)
 
 
 
 if __name__ == "__main__":
-	app.run(port=5000)
+    app.run(port=5000)
