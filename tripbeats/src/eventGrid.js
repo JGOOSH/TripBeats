@@ -55,7 +55,12 @@ function SingleLineGridList(props) {
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
         {data.events.map(event => (
-          <GridListTile key={event.id}>
+          <GridListTile
+            key={event.id}
+            onClick={() => {
+              window.open(event.url, "_blank");
+            }}
+          >
             <img src={event.image_url} alt={event.name} />
             <GridListTileBar
               title={event.name}

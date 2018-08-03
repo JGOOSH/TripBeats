@@ -93,7 +93,10 @@ def get_request():
 
     URL = "https://api.spotify.com/v1/me"
     HEADERS = { "Authorization" : "Bearer " + user_token }
-    user_id = json.loads(requests.get(url=URL, headers=HEADERS).text)['id']
+
+    jsonTemp = json.loads(requests.get(url=URL, headers=HEADERS).text)
+    print (jsonTemp)
+    user_id = jsonTemp['id']
 
     URL = "https://api.spotify.com/v1/users/{}/playlists".format(user_id)
     HEADERS = { 

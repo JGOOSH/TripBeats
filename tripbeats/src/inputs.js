@@ -134,7 +134,7 @@ class InputFields extends Component {
     const fetchInputData = async data => {
       data.playlist = {
         token:
-          "BQAXOq-8VLN4bKb-jo50eatLcbx5_E_HmKhif_AIxT1AbFRfgB1AWGmUeLPvut_lZKdlvCNTtKTAknqKOFAy2HYRD8GKpDdOA7oxCAQKAWOvqRyHIs6yiRoNkoTiPPUKZKs0Xh6g0GQ9eMI4orO4zjnBs0N0aoaGohWoV4ROtU-ve2k2V24DnUcNaFS3hdq7pZIdr4l5dSUOrb6EUbjqUKQqFbNC9pz-X4lBe66UEigg7x8Nj_FEEjNWK49CMFUOlwHoSVC9cpqQ-A"
+          "BQB6FVPsnR_0sl_HjlDeYlJodf1Z5mbdHArNs8ZG3QQpYA-i5JsOqUUVkiN6kZOqlBGK9qpwAqr1Ioh9H02bfdY2eZX01T2zQlNgJRmaHIb694Ba_K1enZjLP5iJOHPNIvz8GGXxom3VaycqXtkYpoyU_AtCUfFqrd2hNX1PJxM_Fh3JIxXilr6011wn7ti5p6pIcWjPMvjyoDid1fqQwvH4ebns8yRSCPgHqAS3DDGmhRC8A54H8gZYDCnkIYnLRt7aC-PswyB5xg"
       };
       const request = await fetch("http://localhost:5000/getthething", {
         headers: {
@@ -144,6 +144,8 @@ class InputFields extends Component {
         body: JSON.stringify(data)
       });
 
+      console.log(request);
+      // if()
       const result = await request.json();
       this.setState({ result: result });
     };

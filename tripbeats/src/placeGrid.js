@@ -41,7 +41,12 @@ function SingleLineGridList(props) {
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
         {data.businesses.map(place => (
-          <GridListTile key={place.id}>
+          <GridListTile
+            key={place.id}
+            onClick={() => {
+              window.open(place.url, "_blank");
+            }}
+          >
             <img src={place.image_url} alt={place.name} />
             <GridListTileBar
               title={place.name}
